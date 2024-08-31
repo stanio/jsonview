@@ -49,7 +49,7 @@ body {
   user-select: none;
 }
 
-.collapsible.collapsed {
+.collapsed > .collapsible {
   height: 1.2em;
   height: 1lh;
   width: 2ch;
@@ -58,12 +58,12 @@ body {
   vertical-align: top;
   margin: 0;
 }
-.collapsible.collapsed:before {
+.collapsed > .collapsible:before {
   content: "…";
   margin-left: .5ch;
 }
 
-.collapser.collapsed {
+.collapsed > .collapser {
   transform: rotate(0deg);
   width: 3ch;
   height: 1lh;
