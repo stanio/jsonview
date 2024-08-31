@@ -15,13 +15,7 @@ export function installCollapseEventListeners() {
 
     evt.stopPropagation();
 
-    collapser.classList.toggle("collapsed");
-
-    let collapsible = collapser;
-    while (collapsible && !collapsible.classList?.contains("collapsible")) {
-      collapsible = collapsible.nextSibling as Element;
-    }
-    collapsible.classList.toggle("collapsed");
+    collapser.parentElement?.classList.toggle("collapsed");
   }
 
   /*
@@ -39,10 +33,10 @@ export function installCollapseEventListeners() {
 
     if (evt.key === "ArrowLeft") {
       // Collapses the json on left arrow key up
-      inputList = document.querySelectorAll(".collapsible, .collapser");
+      inputList = document.querySelectorAll(".collapser");
       for (i = 0; i < inputList.length; i++) {
         if ((inputList[i].parentNode! as HTMLElement).id !== "json") {
-          inputList[i].classList.add("collapsed");
+          inputList[i].parentElement?.classList.add("collapsed");
         }
       }
       evt.preventDefault();
