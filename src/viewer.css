@@ -195,6 +195,7 @@ h1 {
 .spacer {
   display: inline-block;
   width: 0px;
+  white-space: pre;
 }
 
 .string, :any-link {

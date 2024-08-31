@@ -125,7 +125,7 @@ function arrayToHTML(json: any[], path: string, indent: number) {
 }
 
 function addIndent(indent: number) {
-  return `<span class="spacer">${"&nbsp;&nbsp;".repeat(indent)}</span>`;
+  return `<span class="spacer">${"  ".repeat(indent)}</span>`;
 }
 
 // Convert a JSON object to an HTML fragment
