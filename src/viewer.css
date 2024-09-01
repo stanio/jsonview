@@ -78,18 +78,48 @@ li {
   height: 1lh;
 }
 
+.collapsed {
+  display: flex;
+  align-items: baseline;
+  /* Keep spaces around inline text, that is
+   * prevent anonymous flex items to shrink. */
+  white-space: pre;
+
+  > * {
+    flex-shrink: 0;
+  }
+  * {
+    /* Nowrap to enable text-overflow, and ultimately
+     * preformatted to preserve whitespace in values. */
+    white-space: pre;
+  }
+  .spacer {
+    white-space: nowrap; /* Collapse whitespace. */
+  }
+  :not(.q, .collapser) {
+    display: inline;
+  }
+}
+
 .collapsed > .collapsible {
   height: 1.2em;
   height: 1lh;
-  width: 2ch;
-  display: inline-block;
+  flex-shrink: 1;
   overflow: hidden;
-  vertical-align: top;
-  margin: 0;
-}
-.collapsed > .collapsible:before {
-  content: "…";
-  margin-left: .5ch;
+  min-width: 1ch; /* Don't clip the last ellipsis, and ensure the content is
+                   * available for copy-paste ! width: 0; overflow: hidden. */
+  text-overflow: ellipsis;
+  margin: 0 1ch;
+
+  .collapsible {
+    margin: 0;
+  }
+  .collapser {
+    display: none;
+  }
+  li {
+    position: static;
+  }
 }
 
 #error {
