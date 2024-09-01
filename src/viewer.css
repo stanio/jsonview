@@ -27,6 +27,29 @@ body {
   white-space: pre-wrap;
 }
 
+.spacer {
+  display: inline-block;
+  width: 0px;
+  white-space: pre-wrap;
+}
+
+.q {
+  display: inline-block;
+  width: 0px;
+  color: transparent;
+}
+
+.quoted .q {
+  display: inline;
+  width: auto;
+  color: inherit;
+  font-weight: normal;
+}
+
+li {
+  position: relative;
+}
+
 .collapser {
   position: absolute;
   left: -3ch;
@@ -49,6 +72,12 @@ body {
   user-select: none;
 }
 
+.collapsed > .collapser {
+  transform: rotate(0deg);
+  width: 3ch;
+  height: 1lh;
+}
+
 .collapsed > .collapsible {
   height: 1.2em;
   height: 1lh;
@@ -61,29 +90,6 @@ body {
 .collapsed > .collapsible:before {
   content: "…";
   margin-left: .5ch;
-}
-
-.collapsed > .collapser {
-  transform: rotate(0deg);
-  width: 3ch;
-  height: 1lh;
-}
-
-.q {
-  display: inline-block;
-  width: 0px;
-  color: transparent;
-}
-
-.quoted .q {
-  display: inline;
-  width: auto;
-  color: inherit;
-  font-weight: normal;
-}
-
-li {
-  position: relative;
 }
 
 #error {
@@ -190,12 +196,6 @@ h1 {
   .errorline {
       background-color: rgb(32, 29, 29);
   }
-}
-
-.spacer {
-  display: inline-block;
-  width: 0px;
-  white-space: pre;
 }
 
 .string, :any-link {
