@@ -68,4 +68,10 @@ export function installCollapseEventListeners() {
   // collapse with event delegation
   document.addEventListener("click", collapse, true);
   document.addEventListener("keyup", collapseAll, false);
+
+  window.requestAnimationFrame(() => {
+    collapseAll(new KeyboardEvent("keyup", { key: "ArrowLeft" }));
+    document.querySelectorAll("#json > .collapsible > .collapsed:has(> .collapsible > .collapsed)").
+             forEach(elem => elem.classList.remove("collapsed"));
+  });
 }
