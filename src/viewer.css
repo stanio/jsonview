@@ -99,6 +99,11 @@ li {
   :not(.q, .collapser) {
     display: inline;
   }
+  /* XXX: Prevent "invisible" text-overflow
+   * at the end of a collapsed object. */
+  :last-child > :not(.quoted):last-child > .q:last-child {
+    direction: rtl;
+  }
 }
 
 .collapsed > .collapsible {
