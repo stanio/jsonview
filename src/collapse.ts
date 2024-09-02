@@ -4,18 +4,33 @@
 export function installCollapseEventListeners() {
   // Click handler for collapsing and expanding objects and arrays
   function collapse(evt: Event) {
-    let collapser = evt.target as Element;
-
-    while (collapser && !collapser.classList?.contains("collapser")) {
-      collapser = collapser.nextSibling as Element;
+    let targetItem = evt.target as Element;
+    function elementMatches(target: any, selector: string) {
+      return typeof target.matches === "function" && target.matches(selector);
     }
-    if (!collapser?.classList?.contains("collapser")) {
+
+    if (document.getSelection()?.type === "Range"
+        && !elementMatches(targetItem, ".collapser")
+        || elementMatches(targetItem, ":any-link")) {
       return;
     }
 
-    evt.stopPropagation();
+    while (targetItem && targetItem.localName !== "li") {
+      targetItem = targetItem.parentElement as Element;
+    }
+    if (!targetItem) {
+      return;
+    }
 
-    collapser.parentElement?.classList.toggle("collapsed");
+    let collapsedAncestor = targetItem.parentElement?.closest(".collapsed");
+    if (collapsedAncestor) {
+      do {
+        collapsedAncestor.classList.remove("collapsed");
+        collapsedAncestor = collapsedAncestor.parentElement?.closest(".collapsed");
+      } while (collapsedAncestor);
+    } else if (targetItem.querySelector(":scope > .collapser")) {
+      targetItem.classList.toggle("collapsed");
+    }
   }
 
   /*
@@ -51,6 +66,6 @@ export function installCollapseEventListeners() {
   }
 
   // collapse with event delegation
-  document.addEventListener("click", collapse, false);
+  document.addEventListener("click", collapse, true);
   document.addEventListener("keyup", collapseAll, false);
 }
