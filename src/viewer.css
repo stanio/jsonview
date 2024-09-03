@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+:root {
+  --hilite-color: rgba(255, 255, 128, .5);
+}
+
 body {
   font-family: sans-serif;
   margin: 0;
@@ -178,6 +182,10 @@ h1 {
 
 /* Tomorrow Night theme */
 @media (prefers-color-scheme: dark) {
+  :root {
+    --hilite-color: rgba(128, 255, 255, .1);
+  }
+
   body {
     background-color: #27292C;
     color: #D7DAD8;
@@ -239,4 +247,30 @@ h1 {
 
 :is(.spacer, :not(.quoted) > .q)::selection {
   background-color: transparent;
+}
+
+.prop:has(+ .collapser) {
+  cursor: pointer;
+}
+.collapsed {
+  &, > * .prop:has(+ .collapser) {
+    cursor: default;
+  }
+}
+
+li:hover {
+  &:has(> .collapsible):not(:has(li:hover)):first-line {
+    background-color: var(--hilite-color);
+  }
+  &.collapsed > ul {
+    /* Color the background of a single line a la :first-line. */
+    line-height: normal;
+  }
+
+  &.collapsed > ul:not(:has(:any-link:hover)) {
+    background-color: var(--hilite-color);
+  }
+  &.collapsed > ul:not(.increase[specificity]) ul {
+    background-color: transparent;
+  }
 }
