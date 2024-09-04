@@ -64,9 +64,7 @@ li {
 
   width: 1lh;
   height: 3ch;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  align-content: unsafe center;
   text-align: center;
   transform-origin: calc(3ch / 2);
 }
