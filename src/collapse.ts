@@ -15,7 +15,11 @@ export function installCollapseEventListeners() {
       return;
     }
 
+    let collapsibleTarget: boolean = false;
     while (targetItem && targetItem.localName !== "li") {
+      if (targetItem.classList.contains("collapsible")) {
+        collapsibleTarget = true;
+      }
       targetItem = targetItem.parentElement as Element;
     }
     if (!targetItem) {
@@ -24,6 +28,9 @@ export function installCollapseEventListeners() {
 
     let collapsedAncestor = targetItem.parentElement?.closest(".collapsed");
     if (collapsedAncestor) {
+      if (collapsibleTarget) {
+        targetItem.classList.remove("collapsed");
+      }
       do {
         collapsedAncestor.classList.remove("collapsed");
         collapsedAncestor = collapsedAncestor.parentElement?.closest(".collapsed");
