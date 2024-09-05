@@ -24,7 +24,7 @@ const jsonContent = [
   ],
   [
     `{ "anobject": {"whoa": "nuts","anarray": [1,2,"thr<h1>ee"], "more":"stuff"} }`,
-    `<span class="collapser"></span>{<ul class="obj collapsible"><li><span class="spacer">  </span><span class="prop" title="&lt;root&gt;.anobject"><span class="q">&quot;</span>anobject<span class="q">&quot;</span></span>: <span class="collapser"></span>{<ul class="obj collapsible"><li><span class="spacer">    </span><span class="prop" title="&lt;root&gt;.anobject.whoa"><span class="q">&quot;</span>whoa<span class="q">&quot;</span></span>: <span class="string">&quot;nuts&quot;</span>,</li><li><span class="spacer">    </span><span class="prop" title="&lt;root&gt;.anobject.anarray"><span class="q">&quot;</span>anarray<span class="q">&quot;</span></span>: <span class="collapser"></span>[<ul class="array collapsible"><li><span class="spacer">      </span><span class="num">1</span>,</li><li><span class="spacer">      </span><span class="num">2</span>,</li><li><span class="spacer">      </span><span class="string">&quot;thr&lt;h1&gt;ee&quot;</span></li></ul><span class="spacer">    </span>],</li><li><span class="spacer">    </span><span class="prop" title="&lt;root&gt;.anobject.more"><span class="q">&quot;</span>more<span class="q">&quot;</span></span>: <span class="string">&quot;stuff&quot;</span></li></ul><span class="spacer">  </span>}</li></ul><span class="spacer"></span>}`,
+    `<span class="collapser"></span>{<ul class="obj collapsible"><li><span class="spacer">  </span><span class="prop" title="&lt;root&gt;.anobject"><span class="q">&quot;</span>anobject<span class="q">&quot;</span></span>: <span class="collapser"></span>{<ul class="obj collapsible"><li><span class="spacer">    </span><span class="prop" title="&lt;root&gt;.anobject.whoa"><span class="q">&quot;</span>whoa<span class="q">&quot;</span></span>: <span class="string">&quot;nuts&quot;</span>,</li><li><span class="spacer">    </span><span class="prop" title="&lt;root&gt;.anobject.anarray"><span class="q">&quot;</span>anarray<span class="q">&quot;</span></span>: <span class="collapser"></span>[<ul class="array collapsible" data-length="3"><li><span class="spacer">      </span><span class="num">1</span>,</li><li><span class="spacer">      </span><span class="num">2</span>,</li><li><span class="spacer">      </span><span class="string">&quot;thr&lt;h1&gt;ee&quot;</span></li></ul><span class="spacer">    </span>],</li><li><span class="spacer">    </span><span class="prop" title="&lt;root&gt;.anobject.more"><span class="q">&quot;</span>more<span class="q">&quot;</span></span>: <span class="string">&quot;stuff&quot;</span></li></ul><span class="spacer">  </span>}</li></ul><span class="spacer"></span>}`,
   ],
   [
     `{ "awesome": true }`,
@@ -72,7 +72,7 @@ const jsonContent = [
   [`1`, `<span class="num">1</span>`],
   [
     `[1,2,"thr<h1>ee"]`,
-    `<span class="collapser"></span>[<ul class="array collapsible"><li><span class="spacer">  </span><span class="num">1</span>,</li><li><span class="spacer">  </span><span class="num">2</span>,</li><li><span class="spacer">  </span><span class="string">&quot;thr&lt;h1&gt;ee&quot;</span></li></ul><span class="spacer"></span>]`,
+    `<span class="collapser"></span>[<ul class="array collapsible" data-length="3"><li><span class="spacer">  </span><span class="num">1</span>,</li><li><span class="spacer">  </span><span class="num">2</span>,</li><li><span class="spacer">  </span><span class="string">&quot;thr&lt;h1&gt;ee&quot;</span></li></ul><span class="spacer"></span>]`,
   ],
   [
     `{"hey": "g'uy'"}`,
@@ -80,7 +80,7 @@ const jsonContent = [
   ],
   [
     `{ "value":[ { "@some.text":"W/\\"12241774\\"" } ] }`,
-    `<span class="collapser"></span>{<ul class="obj collapsible"><li><span class="spacer">  </span><span class="prop" title="&lt;root&gt;.value"><span class="q">&quot;</span>value<span class="q">&quot;</span></span>: <span class="collapser"></span>[<ul class="array collapsible"><li><span class="spacer">    </span><span class="collapser"></span>{<ul class="obj collapsible"><li><span class="spacer">      </span><span class="prop quoted" title=""><span class="q">&quot;</span>@some.text<span class="q">&quot;</span></span>: <span class="string">&quot;W/\\&quot;12241774\\&quot;&quot;</span></li></ul><span class="spacer">    </span>}</li></ul><span class="spacer">  </span>]</li></ul><span class="spacer"></span>}`,
+    `<span class="collapser"></span>{<ul class="obj collapsible"><li><span class="spacer">  </span><span class="prop" title="&lt;root&gt;.value"><span class="q">&quot;</span>value<span class="q">&quot;</span></span>: <span class="collapser"></span>[<ul class="array collapsible" data-length="1"><li><span class="spacer">    </span><span class="collapser"></span>{<ul class="obj collapsible"><li><span class="spacer">      </span><span class="prop quoted" title=""><span class="q">&quot;</span>@some.text<span class="q">&quot;</span></span>: <span class="string">&quot;W/\\&quot;12241774\\&quot;&quot;</span></li></ul><span class="spacer">    </span>}</li></ul><span class="spacer">  </span>]</li></ul><span class="spacer"></span>}`,
   ],
   [
     `{"key":"\\"value\\u201d"}`,

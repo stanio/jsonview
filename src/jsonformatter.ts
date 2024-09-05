@@ -120,7 +120,7 @@ function arrayToHTML(json: any[], path: string, indent: number) {
   }
   return (
     (json.length === 0 ? "" : '<span class="collapser"></span>') +
-    `[<ul class="array collapsible">${output}</ul>${addIndent(indent)}]`
+    `[<ul class="array collapsible" data-length="${json.length}">${output}</ul>${addIndent(indent)}]`
   );
 }
 
