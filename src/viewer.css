@@ -257,11 +257,11 @@ h1 {
 }
 
 li:hover {
-  &:has(> .collapsible):not(:has(li:hover)):first-line {
+  &:has(> .collapsible):not(:has(li:hover))::first-line {
     background-color: var(--hilite-color);
   }
   &.collapsed > ul {
-    /* Color the background of a single line a la :first-line. */
+    /* Color the background of a single line a la ::first-line. */
     line-height: normal;
   }
 
